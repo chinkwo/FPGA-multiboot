@@ -1,0 +1,18 @@
+PROMGEN: Xilinx Prom Generator P.20131013
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+promgen -w -p mcs -c FF -o E:\FPGA\26online_lever//online_lever -s 8192 -u 0000 E:/FPGA/26online_lever/ise/online_lever/online_lever.bit -u 400000 E:/FPGA/01water_led/ISE/water_led/water_led.bit -spi 
+
+PROM E:\FPGA\26online_lever\online_lever.prm map: Thu Mar 01 14:22:32 2018
+
+Calculating PROM checksum with fill value ff
+
+Format        Mcs86 (32-bit)
+Size          8192K
+PROM start    0000:0000
+PROM end      007f:ffff
+PROM checksum 75392b0d
+
+        Addr1        Addr2                     Date File(s)
+    0000:0000    0005:327b     Mar 01 11:20:42 2018 E:/FPGA/26online_lever/ise/online_lever/online_lever.bit
+    0040:0000    0045:327b     Mar 01 12:55:30 2018 E:/FPGA/01water_led/ISE/water_led/water_led.bit

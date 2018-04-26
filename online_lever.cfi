@@ -1,0 +1,12 @@
+# PROMGEN: Xilinx Prom Generator P.20131013
+# Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+SOFTWARE_VERSION P.20131013
+DATE            03/01/2018 - 14:22
+SOURCE          E:\FPGA\26online_lever\online_lever.mcs
+DEVICE          8192K
+DATA_WIDTH      1
+FILL_DATA       0xFF
+SIGNATURE       0x75392B0D
+START_ADDRESS   0x00000000 END_ADDRESS 0x0005327B DIRECTION_UP   "E:/FPGA/26online_lever/ise/online_lever/online_lever.bit" 6slx9tqg144
+START_ADDRESS   0x00400000 END_ADDRESS 0x0045327B DIRECTION_UP   "E:/FPGA/01water_led/ISE/water_led/water_led.bit" 6slx9tqg144
