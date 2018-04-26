@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=E:\FPGA\26online_lever\ise\online_lever\online_lever.ncd
+OUTFILE=E:\FPGA\26online_lever\ise\online_lever\online_lever.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=E:\FPGA\26online_lever\ise\online_lever
+LICENSE=WebPack
+USER_INFO=__0_0_0

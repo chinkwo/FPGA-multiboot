@@ -1,0 +1,30 @@
+module	led_water(
+		input			wire			sclk		,
+		input			wire			rst_n		,
+		input			wire			key_in	,
+		output		wire[3:0]	led   	
+
+);
+wire		key_flag	;
+
+//key_debounceÀı»¯
+key_debounce		U0(
+.rst_n		(rst_n		),
+.sclk			(sclk			),
+.key			(key_in		),
+.key_flag (key_flag )
+);
+
+icap_ctrl	U1(
+.sclk			(sclk			),
+.rst_n		(rst_n		),
+.key_flag (key_flag )		
+);
+
+water_led	U2(
+.sclk		(sclk	),
+.rst_n	(rst_n),
+.led    (led  )
+);
+
+endmodule		

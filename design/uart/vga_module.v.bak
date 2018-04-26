@@ -1,0 +1,218 @@
+module	vga_module(
+		input		wire			sclk			,
+		input		wire			rst_n			,
+		input		wire			vga_clk		,
+		input		wire[7:0]	dout			,
+		output	reg				h_sync		,
+		output	reg				v_sync		,
+		//output	reg[15:0]rd_addr		,	
+		output	wire		area		,
+		output	reg[2:0]	r					,
+		output	reg[2:0]	g					,
+		output	reg[1:0]	b
+);
+//-----------------------------------------------------------//
+// 水平扫描参数的设定1024*768 60Hz VGA
+//-----------------------------------------------------------//
+//parameter LinePeriod =1344;            //行周期数
+//parameter H_SyncPulse=136;             //行同步脉冲（Sync a）
+//parameter H_BackPorch=160;             //显示后沿（Back porch b）
+//parameter H_ActivePix=1024;            //显示时序段（Display interval c）
+//parameter H_FrontPorch=24;             //显示前沿（Front porch d）
+//parameter Hde_start=296;
+//parameter Hde_end=1320;
+
+//-----------------------------------------------------------//
+// 垂直扫描参数的设定1024*768 60Hz VGA
+//-----------------------------------------------------------//
+//parameter FramePeriod =806;           //列周期数
+//parameter V_SyncPulse=6;              //列同步脉冲（Sync o）
+//parameter V_BackPorch=29;             //显示后沿（Back porch p）
+//parameter V_ActivePix=768;            //显示时序段（Display interval q）
+//parameter V_FrontPorch=3;             //显示前沿（Front porch r）
+//parameter Vde_start=35;
+//parameter Vde_end=803;
+
+//-----------------------------------------------------------//
+// 水平扫描参数的设定800*600 VGA
+//-----------------------------------------------------------//
+//parameter LinePeriod =1056;           //行周期数
+//parameter H_SyncPulse=128;            //行同步脉冲（Sync a）
+//parameter H_BackPorch=88;             //显示后沿（Back porch b）
+//parameter H_ActivePix=800;            //显示时序段（Display interval c）
+//parameter H_FrontPorch=40;            //显示前沿（Front porch d）
+
+//-----------------------------------------------------------//
+// 垂直扫描参数的设定800*600 VGA
+//-----------------------------------------------------------//
+//parameter FramePeriod =628;           //列周期数
+//parameter V_SyncPulse=4;              //列同步脉冲（Sync o）
+//parameter V_BackPorch=23;             //显示后沿（Back porch p）
+//parameter V_ActivePix=600;            //显示时序段（Display interval q）
+//parameter V_FrontPorch=1;             //显示前沿（Front porch r）
+
+//-----------------------------------------------------------//
+// 水平扫描参数的设定640*480 60Hz VGA
+//-----------------------------------------------------------//
+parameter LinePeriod =800;            //行周期数
+parameter H_SyncPulse=96;             //行同步脉冲（Sync a）
+parameter H_BackPorch=40;             //显示后沿（Back porch b）
+parameter H_ActivePix=640;            //显示时序段（Display interval c）
+parameter H_FrontPorch=8;             //显示前沿（Front porch d）
+parameter Hde_start=144;
+parameter Hde_end=784;
+
+//-----------------------------------------------------------//
+// 垂直扫描参数的设定640*480 60Hz VGA
+//-----------------------------------------------------------//
+parameter FramePeriod =525;           //列周期数
+parameter V_SyncPulse=2;              //列同步脉冲（Sync o）
+parameter V_BackPorch=25;             //显示后沿（Back porch p）
+parameter V_ActivePix=480;            //显示时序段（Display interval q）
+parameter V_FrontPorch=2;             //显示前沿（Front porch r）
+parameter Vde_start=35;
+parameter Vde_end=515;
+parameter MOVE_SPEED=(FramePeriod*LinePeriod*3)-1;
+
+	reg[9:0]			h_cnt		;	//h_cnt==LinePeriod
+	reg[9:0]			v_cnt		;	//v_cnt==FramePeriod
+	wire					area1		;
+	wire					area2		;
+	wire					area3		;
+//H_cnt行计数器	
+always@(posedge	vga_clk	or	negedge	rst_n)
+		if(rst_n==0)
+			h_cnt	<=	1;
+		else	if(h_cnt==LinePeriod)
+			h_cnt	<=	1;
+		else	if(vga_clk==1)
+			h_cnt	<=	h_cnt	+	1;
+			
+			
+//V_cnt行计数器				
+always@(posedge	vga_clk	or	negedge	rst_n)
+		if(rst_n==0)
+			v_cnt	<=	1;
+		else	if(v_cnt==FramePeriod&&h_cnt==LinePeriod)
+			v_cnt	<=	1;
+		else	if(h_cnt==LinePeriod)
+			v_cnt	<=	v_cnt	+	1;
+			
+//h_sync行同步信号
+always@(posedge	vga_clk	or	negedge	rst_n)
+		if(rst_n==0)
+			h_sync	<=	0;
+		else	if(h_cnt==1)
+			h_sync	<=	1;
+		else	if(h_cnt>=H_SyncPulse)
+			h_sync	<=	0;
+			
+//v_sync行同步信号
+always@(posedge	vga_clk	or	negedge	rst_n)
+		if(rst_n==0)
+			v_sync	<=	0;
+		else	if(v_cnt==1)
+			v_sync	<=	1;
+		else	if(v_cnt==V_SyncPulse)
+			v_sync	<=	0;
+/********************************************************************/			
+/***************************动态控制区域*************************/
+	reg					flag_x	;
+	reg					flag_y	;
+	reg[9:0]		X0			;
+	reg[9:0]		Y0			;
+	reg[30:0]		cnt_move;
+	parameter			X=144	;//横坐标原点定义
+	parameter			Y=35	;//纵坐标原点定义
+	
+//flag_x定义	
+always@(posedge	vga_clk	or	negedge	rst_n)
+	if(rst_n==0)
+		flag_x	<=	0;
+	else	if((X0)==Hde_start)
+		flag_x	<=	1;
+	else	if((X0+200)==Hde_end)
+		flag_x	<=	0;
+			
+//flag_x定义
+always@(posedge	vga_clk	or	negedge	rst_n)
+	if(rst_n==0)
+		flag_y	<=	0;
+	else	if((Y0)==Vde_start)
+		flag_y	<=	1;
+	else	if((Y0+200)==Vde_end)
+		flag_y	<=	0;
+
+//X0定义
+always@(posedge	vga_clk	or	negedge	rst_n)
+	if(rst_n==0)
+		X0	<=	X;
+	else	if(cnt_move==MOVE_SPEED)
+		begin	
+			if(flag_x==1)
+				X0	<=	X0	+	1;
+			else	if(flag_x==0)
+				X0	<=	X0-1;
+		end
+
+//Y0定义
+always@(posedge	vga_clk	or	negedge	rst_n)
+	if(rst_n==0)
+		Y0	<=	Y;
+	else	if(cnt_move==MOVE_SPEED)
+		begin	
+			if(flag_y==1) 
+				Y0	<=	Y0	+	1;
+			else	if(flag_y==0)
+				Y0	<=	Y0-1;
+		end				
+
+//cnt_move
+always@(posedge	vga_clk	or	negedge	rst_n)
+if(rst_n==0)
+	cnt_move	<=	0;
+else	if(cnt_move<MOVE_SPEED)
+	cnt_move	<=	cnt_move+1;
+else
+	cnt_move	<=	0;
+
+////rd_addr
+//always@(posedge vga_clk or negedge rst_n)
+//begin
+//       if (!rst_n)
+//              rd_addr<=0;
+//       else if (rd_addr==39999)
+//              rd_addr<=0;
+//       else if ((h_cnt-X0<200)&&(v_cnt-Y0<200))
+//              rd_addr<=rd_addr+1;
+//end           	
+		
+/********************************************************************/	
+
+//area区域定义
+parameter		R1	=	100	;
+parameter		R2	=	50	;
+assign	area1	=	(((h_cnt-X0)*(h_cnt-X0)+(v_cnt-Y0)*(v_cnt-Y0))<=(R1*R1));
+assign	area2	=	((R2*R2)<=((h_cnt-X0)*(h_cnt-X0)+(v_cnt-Y0)*(v_cnt-Y0)));
+assign	area	=	((h_cnt-X0<200)&&(v_cnt-Y0<200));
+assign	area4	=	((h_cnt-X<200)&&(v_cnt-Y<200));
+
+//rgb赋值
+always@(posedge	vga_clk	or	negedge	rst_n)
+if(rst_n==0)
+		{r,g,b}	<=	8'b000_000_00;
+//else	if(area1&&area2)
+//		{r,g,b}	<=	8'b011_011_01;
+else	if(area)
+		{r,g,b}	<=	dout; 
+else	if(h_cnt>=Hde_start&&h_cnt<=Hde_end&&v_cnt>=Vde_start&&v_cnt<=Vde_start+160)
+		{r,g,b}	<=	8'b111_000_00;
+else	if(h_cnt>=Hde_start&&h_cnt<=Hde_end&&v_cnt>=Vde_start&&v_cnt<=Vde_start+320)
+		{r,g,b}	<=	8'b000_111_000; 
+else	if(h_cnt>=Hde_start&&h_cnt<=Hde_end&&v_cnt>=Vde_start&&v_cnt<=Vde_start+480)
+		{r,g,b}	<=	8'b000_000_11;
+else	
+		{r,g,b}	<=	8'b000_000_00;	
+	
+		
+endmodule

@@ -1,0 +1,292 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 2
+-n 3 -fastpaths -xml online_lever.twx online_lever.ncd -o online_lever.twr
+online_lever.pcf
+
+Design file:              online_lever.ncd
+Physical constraint file: online_lever.pcf
+Device,package,speed:     xc6slx9,tqg144,C,-2 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 50 MHz HIGH 
+50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 6051 paths analyzed, 862 endpoints analyzed, 0 failing endpoints
+ 1 timing error detected. (0 setup errors, 0 hold errors, 1 component switching limit error)
+ Minimum period is  50.000ns.
+--------------------------------------------------------------------------------
+
+Paths for end point U3/U1/ICAP_SPARTAN6_inst (ICAP_X0Y0.I5), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     9.307ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U3/U1/conf_data_1 (FF)
+  Destination:          U3/U1/ICAP_SPARTAN6_inst (OTHER)
+  Requirement:          20.000ns
+  Data Path Delay:      10.698ns (Levels of Logic = 0)
+  Clock Path Skew:      0.040ns (0.357 - 0.317)
+  Source Clock:         sclk_BUFGP rising at 0.000ns
+  Destination Clock:    sclk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U3/U1/conf_data_1 to U3/U1/ICAP_SPARTAN6_inst
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X22Y2.AMUX     Tshcko                0.535   U3/U1/conf_data<12>
+                                                       U3/U1/conf_data_1
+    ICAP_X0Y0.I5         net (fanout=3)        1.163   U3/U1/conf_data<1>
+    ICAP_X0Y0.CLK        Tcapdck_I             9.000   U3/U1/ICAP_SPARTAN6_inst
+                                                       U3/U1/ICAP_SPARTAN6_inst
+    -------------------------------------------------  ---------------------------
+    Total                                     10.698ns (9.535ns logic, 1.163ns route)
+                                                       (89.1% logic, 10.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point U3/U1/ICAP_SPARTAN6_inst (ICAP_X0Y0.I6), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     9.307ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U3/U1/conf_data_1 (FF)
+  Destination:          U3/U1/ICAP_SPARTAN6_inst (OTHER)
+  Requirement:          20.000ns
+  Data Path Delay:      10.698ns (Levels of Logic = 0)
+  Clock Path Skew:      0.040ns (0.357 - 0.317)
+  Source Clock:         sclk_BUFGP rising at 0.000ns
+  Destination Clock:    sclk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U3/U1/conf_data_1 to U3/U1/ICAP_SPARTAN6_inst
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X22Y2.AMUX     Tshcko                0.535   U3/U1/conf_data<12>
+                                                       U3/U1/conf_data_1
+    ICAP_X0Y0.I6         net (fanout=3)        1.163   U3/U1/conf_data<1>
+    ICAP_X0Y0.CLK        Tcapdck_I             9.000   U3/U1/ICAP_SPARTAN6_inst
+                                                       U3/U1/ICAP_SPARTAN6_inst
+    -------------------------------------------------  ---------------------------
+    Total                                     10.698ns (9.535ns logic, 1.163ns route)
+                                                       (89.1% logic, 10.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point U3/U1/ICAP_SPARTAN6_inst (ICAP_X0Y0.I10), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     9.386ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               U3/U1/conf_data_13 (FF)
+  Destination:          U3/U1/ICAP_SPARTAN6_inst (OTHER)
+  Requirement:          20.000ns
+  Data Path Delay:      10.619ns (Levels of Logic = 0)
+  Clock Path Skew:      0.040ns (0.357 - 0.317)
+  Source Clock:         sclk_BUFGP rising at 0.000ns
+  Destination Clock:    sclk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: U3/U1/conf_data_13 to U3/U1/ICAP_SPARTAN6_inst
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X22Y2.BMUX     Tshcko                0.535   U3/U1/conf_data<12>
+                                                       U3/U1/conf_data_13
+    ICAP_X0Y0.I10        net (fanout=2)        1.084   U3/U1/conf_data<13>
+    ICAP_X0Y0.CLK        Tcapdck_I             9.000   U3/U1/ICAP_SPARTAN6_inst
+                                                       U3/U1/ICAP_SPARTAN6_inst
+    -------------------------------------------------  ---------------------------
+    Total                                     10.619ns (9.535ns logic, 1.084ns route)
+                                                       (89.8% logic, 10.2% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 50 MHz HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point U1/U1/cs_n (SLICE_X14Y13.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.415ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               U1/U1/cs_n (FF)
+  Destination:          U1/U1/cs_n (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.415ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         sclk_BUFGP rising at 20.000ns
+  Destination Clock:    sclk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: U1/U1/cs_n to U1/U1/cs_n
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y13.AQ      Tcko                  0.200   U1/U1/cs_n
+                                                       U1/U1/cs_n
+    SLICE_X14Y13.A6      net (fanout=2)        0.025   U1/U1/cs_n
+    SLICE_X14Y13.CLK     Tah         (-Th)    -0.190   U1/U1/cs_n
+                                                       U1/U1/cs_n_rstpot
+                                                       U1/U1/cs_n
+    -------------------------------------------------  ---------------------------
+    Total                                      0.415ns (0.390ns logic, 0.025ns route)
+                                                       (94.0% logic, 6.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point U1/U1/ADDR_14 (SLICE_X6Y18.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.420ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               U1/U1/ADDR_14 (FF)
+  Destination:          U1/U1/ADDR_14 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.420ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         sclk_BUFGP rising at 20.000ns
+  Destination Clock:    sclk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: U1/U1/ADDR_14 to U1/U1/ADDR_14
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X6Y18.AQ       Tcko                  0.200   U1/U1/ADDR<15>
+                                                       U1/U1/ADDR_14
+    SLICE_X6Y18.A6       net (fanout=5)        0.030   U1/U1/ADDR<14>
+    SLICE_X6Y18.CLK      Tah         (-Th)    -0.190   U1/U1/ADDR<15>
+                                                       U1/U1/ADDR_14_dpot1
+                                                       U1/U1/ADDR_14
+    -------------------------------------------------  ---------------------------
+    Total                                      0.420ns (0.390ns logic, 0.030ns route)
+                                                       (92.9% logic, 7.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point U2/U2/cnt_4_0 (SLICE_X18Y11.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.421ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               U2/U2/cnt_4_0 (FF)
+  Destination:          U2/U2/cnt_4_0 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.421ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         sclk_BUFGP rising at 20.000ns
+  Destination Clock:    sclk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: U2/U2/cnt_4_0 to U2/U2/cnt_4_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y11.AQ      Tcko                  0.200   U2/U2/div_4
+                                                       U2/U2/cnt_4_0
+    SLICE_X18Y11.A6      net (fanout=3)        0.031   U2/U2/cnt_4<0>
+    SLICE_X18Y11.CLK     Tah         (-Th)    -0.190   U2/U2/div_4
+                                                       U2/U2/Mcount_cnt_4_xor<0>11_INV_0
+                                                       U2/U2/cnt_4_0
+    -------------------------------------------------  ---------------------------
+    Total                                      0.421ns (0.390ns logic, 0.031ns route)
+                                                       (92.6% logic, 7.4% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 50 MHz HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: -30.000ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 50.000ns (20.000MHz) (Tcapper)
+  Physical resource: U3/U1/ICAP_SPARTAN6_inst/CLK
+  Logical resource: U3/U1/ICAP_SPARTAN6_inst/CLK
+  Location pin: ICAP_X0Y0.CLK
+  Clock network: sclk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 17.334ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
+  Physical resource: sclk_BUFGP/BUFG/I0
+  Logical resource: sclk_BUFGP/BUFG/I0
+  Location pin: BUFGMUX_X2Y9.I0
+  Clock network: sclk_BUFGP/IBUFG
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: U0/U2/rx_data<7>/CLK
+  Logical resource: U0/U2/rx_data_4/CK
+  Location pin: SLICE_X8Y13.CLK
+  Clock network: sclk_BUFGP
+--------------------------------------------------------------------------------
+
+
+1 constraint not met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock sclk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+sclk           |   10.693|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 1  Score: 30000  (Setup/Max: 0, Hold: 0, Component Switching Limit: 30000)
+
+Constraints cover 6051 paths, 0 nets, and 1598 connections
+
+Design statistics:
+   Minimum period:  50.000ns{1}   (Maximum frequency:  20.000MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Thu Mar 01 11:20:34 2018 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 245 MB
+
+
+

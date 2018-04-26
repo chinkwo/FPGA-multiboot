@@ -1,0 +1,9 @@
+xst -intstyle ise -ifn "E:/FPGA/26online_lever/ise/online_lever/online_lever.xst" -ofn "E:/FPGA/26online_lever/ise/online_lever/online_lever.syr" 
+xst -intstyle ise -ifn "E:/FPGA/26online_lever/ise/online_lever/online_lever.xst" -ofn "E:/FPGA/26online_lever/ise/online_lever/online_lever.syr" 
+xst -intstyle ise -ifn "E:/FPGA/26online_lever/ise/online_lever/online_lever.xst" -ofn "E:/FPGA/26online_lever/ise/online_lever/online_lever.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc E:/FPGA/26online_lever/ise/online_lever.ucf -p xc6slx9-tqg144-2 online_lever.ngc online_lever.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o online_lever_map.ncd online_lever.ngd online_lever.pcf 
+par -w -intstyle ise -ol high -mt off online_lever_map.ncd online_lever.ncd online_lever.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml online_lever.twx online_lever.ncd -o online_lever.twr online_lever.pcf 
+bitgen -intstyle ise -f online_lever.ut online_lever.ncd 
+xst -intstyle ise -ifn "E:/FPGA/26online_lever/ise/online_lever/online_lever.xst" -ofn "E:/FPGA/26online_lever/ise/online_lever/online_lever.syr" 

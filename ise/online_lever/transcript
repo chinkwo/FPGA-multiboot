@@ -1,0 +1,77 @@
+# Reading D:/modeltech64_10.2/tcl/vsim/pref.tcl 
+# //  ModelSim SE-64 10.2 Feb  2 2013 
+# //
+# //  Copyright 1991-2013 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# do {tb_online_lever.fdo} 
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+# -- Compiling module se_start
+# 
+# Top level modules:
+# 	se_start
+# Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+# -- Compiling module se_ctrl
+# 
+# Top level modules:
+# 	se_ctrl
+# Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+# -- Compiling module spi_ce
+# 
+# Top level modules:
+# 	spi_ce
+# Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+# -- Compiling module tb_online_lever
+# 
+# Top level modules:
+# 	tb_online_lever
+# Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+# -- Compiling module glbl
+# 
+# Top level modules:
+# 	glbl
+# vsim -L xilinxcorelib_ver -L unisims_ver -L unimacro_ver -L secureip -lib work -voptargs=\"+acc\" -t 1ps work.tb_online_lever glbl 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# Loading work.tb_online_lever(fast)
+# Loading work.spi_ce(fast)
+# Loading work.se_ctrl(fast)
+# Loading work.se_start(fast)
+# Loading work.glbl(fast)
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+add wave -position insertpoint sim:/tb_online_lever/uut/*
+add wave -position insertpoint sim:/tb_online_lever/uut/U2/*
+add wave -position insertpoint sim:/tb_online_lever/uut/U3/*
+run
+restart
+# Loading work.tb_online_lever(fast)
+# Loading work.spi_ce(fast)
+# Loading work.se_ctrl(fast)
+# Loading work.se_start(fast)
+# Loading work.glbl(fast)
+run -all
+# Can't move the Now cursor.
+vlog -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF E:/FPGA/26online_lever/design/se_start.v
+# Model Technology ModelSim SE-64 vlog 10.2 Compiler 2013.02 Feb  2 2013
+# -- Compiling module se_start
+# 
+# Top level modules:
+# 	se_start
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# 
+# Loading work.tb_online_lever(fast)
+# Loading work.spi_ce(fast)
+# Loading work.se_ctrl(fast)
+# Loading work.se_start(fast)
+# Loading work.glbl(fast)
+run -all
+run -all

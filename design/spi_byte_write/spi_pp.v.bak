@@ -1,0 +1,50 @@
+module	spi_pp(
+		input			wire			sclk	,
+		input			wire			rst_n	,
+		input			wire			rx		,
+		output		wire			tx		,
+		output		wire			cs_n	,
+		output		wire			sdi		,
+		output		wire			sck		
+);
+ 
+wire[7:0]		write_data; 
+wire				rd_en 		;
+wire				rx_flag		;
+wire[7:0]		rx_data		;
+wire				wr_start	;
+
+//uart例化
+uart_top	U0(
+.sclk		(sclk	),
+.rst_n	(rst_n)	, 
+.rx     (rx   ) ,
+.po_data(rx_data),
+.po_flag(rx_flag),
+.tx			(tx		)	//tx并行八位数据
+);
+
+//pp_ctrl例化 
+pp_ctrl	U1(
+.sclk				(sclk				),//from top
+.rst_n			(rst_n			),//from	top
+.wr_start		(wr_start		),//from	U2
+.write_data	(write_data	),//from	U2
+.rd_en			(rd_en			),//to		U2
+.cs_n				(cs_n				),//to		top
+.sdi				(sdi				),//to		top
+.sck				(sck				)//to		top
+);
+
+//fifo_ctrl例化
+fifo_ctrl	U2(
+.sclk				(sclk				),//from top 
+.rst_n			(rst_n			),//from	top 
+.rx_flag		(rx_flag		),//from	U0
+.rx_data		(rx_data		),//from U0
+.rd_en			(rd_en			),//from U1
+.wr_start		(wr_start		),//to   U1
+.write_data (write_data )//to   U1
+
+);
+endmodule	

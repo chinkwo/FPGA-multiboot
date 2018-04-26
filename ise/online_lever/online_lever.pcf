@@ -1,0 +1,110 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Thu Mar 01 11:20:19 2018
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "rx" LOCATE = SITE "P56" LEVEL 1;
+COMP "tx" LOCATE = SITE "P21" LEVEL 1;
+COMP "sck" LOCATE = SITE "P70" LEVEL 1;
+COMP "sdi" LOCATE = SITE "P64" LEVEL 1;
+COMP "cs_n" LOCATE = SITE "P38" LEVEL 1;
+COMP "sclk" LOCATE = SITE "P24" LEVEL 1;
+COMP "key_in1" LOCATE = SITE "P94" LEVEL 1;
+COMP "key_in2" LOCATE = SITE "P97" LEVEL 1;
+COMP "rst_n" LOCATE = SITE "P93" LEVEL 1;
+PIN U3/U1/ICAP_SPARTAN6_inst_pins<1> = BEL "U3/U1/ICAP_SPARTAN6_inst" PINNAME
+        CLK;
+TIMEGRP sys_clk_pin = BEL "U2/U1/key_flag" BEL "U3/U0/key_flag" BEL
+        "U0/U3/tx_data" BEL "U0/U1/tx_bit_cnt_3" BEL "U0/U1/tx_bit_cnt_2" BEL
+        "U0/U1/tx_bit_cnt_1" BEL "U0/U1/tx_bit_cnt_0" BEL "U0/U1/rx_bit_cnt_3"
+        BEL "U0/U1/rx_bit_cnt_2" BEL "U0/U1/rx_bit_cnt_1" BEL
+        "U0/U1/rx_bit_cnt_0" BEL "U0/U1/rx_baud_cnt_12" BEL
+        "U0/U1/rx_baud_cnt_11" BEL "U0/U1/rx_baud_cnt_10" BEL
+        "U0/U1/rx_baud_cnt_9" BEL "U0/U1/rx_baud_cnt_8" BEL
+        "U0/U1/rx_baud_cnt_7" BEL "U0/U1/rx_baud_cnt_6" BEL
+        "U0/U1/rx_baud_cnt_5" BEL "U0/U1/rx_baud_cnt_4" BEL
+        "U0/U1/rx_baud_cnt_3" BEL "U0/U1/rx_baud_cnt_2" BEL
+        "U0/U1/rx_baud_cnt_1" BEL "U0/U1/rx_baud_cnt_0" BEL
+        "U0/U1/tx_baud_cnt_12" BEL "U0/U1/tx_baud_cnt_11" BEL
+        "U0/U1/tx_baud_cnt_10" BEL "U0/U1/tx_baud_cnt_9" BEL
+        "U0/U1/tx_baud_cnt_8" BEL "U0/U1/tx_baud_cnt_7" BEL
+        "U0/U1/tx_baud_cnt_6" BEL "U0/U1/tx_baud_cnt_5" BEL
+        "U0/U1/tx_baud_cnt_4" BEL "U0/U1/tx_baud_cnt_3" BEL
+        "U0/U1/tx_baud_cnt_2" BEL "U0/U1/tx_baud_cnt_1" BEL
+        "U0/U1/tx_baud_cnt_0" BEL "U0/U1/tx_bit_flag" BEL "U0/U1/rx_bit_flag"
+        BEL "U0/U2/po_data_7" BEL "U0/U2/po_data_6" BEL "U0/U2/po_data_5" BEL
+        "U0/U2/po_data_4" BEL "U0/U2/po_data_3" BEL "U0/U2/po_data_2" BEL
+        "U0/U2/po_data_1" BEL "U0/U2/po_data_0" BEL "U0/U2/rx_data_7" BEL
+        "U0/U2/rx_data_6" BEL "U0/U2/rx_data_5" BEL "U0/U2/rx_data_4" BEL
+        "U0/U2/rx_data_3" BEL "U0/U2/rx_data_2" BEL "U0/U2/rx_data_1" BEL
+        "U0/U2/rx_data_0" BEL "U0/U2/rx_2" BEL "U0/U2/po_flag" BEL
+        "U0/U2/rx_1" BEL "U1/U1/ADDR_0" BEL "U1/U1/cnt_32_4" BEL
+        "U1/U1/cnt_32_3" BEL "U1/U1/cnt_32_2" BEL "U1/U1/cnt_32_1" BEL
+        "U1/U1/cnt_32_0" BEL "U1/U1/ADDR_23" BEL "U1/U1/bit_cnt_2" BEL
+        "U1/U1/bit_cnt_1" BEL "U1/U1/bit_cnt_0" BEL "U1/U1/ADDR_21" BEL
+        "U1/U1/ADDR_20" BEL "U1/U1/ADDR_22" BEL "U1/U1/ADDR_18" BEL
+        "U1/U1/ADDR_17" BEL "U1/U1/ADDR_19" BEL "U1/U1/ADDR_15" BEL
+        "U1/U1/ADDR_14" BEL "U1/U1/ADDR_16" BEL "U1/U1/ADDR_12" BEL
+        "U1/U1/ADDR_11" BEL "U1/U1/ADDR_13" BEL "U1/U1/ADDR_9" BEL
+        "U1/U1/ADDR_8" BEL "U1/U1/ADDR_10" BEL "U1/U1/ADDR_6" BEL
+        "U1/U1/ADDR_5" BEL "U1/U1/ADDR_7" BEL "U1/U1/ADDR_3" BEL
+        "U1/U1/ADDR_2" BEL "U1/U1/ADDR_4" BEL "U1/U1/ADDR_1" BEL
+        "U1/U1/state_FSM_FFd1" BEL "U1/U1/state_FSM_FFd2" BEL "U1/U1/cnt_4_1"
+        BEL "U1/U1/cnt_4_0" BEL "U1/U1/sdi_data_7" BEL "U1/U1/sdi_data_6" BEL
+        "U1/U1/sdi_data_5" BEL "U1/U1/sdi_data_4" BEL "U1/U1/sdi_data_3" BEL
+        "U1/U1/sdi_data_2" BEL "U1/U1/sdi_data_1" BEL "U1/U1/sdi_data_0" BEL
+        "U1/U1/state_cnt_8" BEL "U1/U1/state_cnt_7" BEL "U1/U1/state_cnt_6"
+        BEL "U1/U1/state_cnt_5" BEL "U1/U1/state_cnt_4" BEL
+        "U1/U1/state_cnt_3" BEL "U1/U1/state_cnt_2" BEL "U1/U1/state_cnt_1"
+        BEL "U1/U1/state_cnt_0" BEL "U2/U2/ADDR1_INST_0" BEL "U2/U2/bit_cnt_2"
+        BEL "U2/U2/bit_cnt_1" BEL "U2/U2/bit_cnt_0" BEL "U2/U2/cnt_3" BEL
+        "U2/U2/cnt_2" BEL "U2/U2/cnt_1" BEL "U2/U2/cnt_0" BEL
+        "U2/U2/ADDR1_INST_6" BEL "U2/U2/ADDR1_INST_5" BEL "U2/U2/ADDR1_INST_7"
+        BEL "U2/U2/ADDR1_INST_3" BEL "U2/U2/ADDR1_INST_2" BEL
+        "U2/U2/ADDR1_INST_4" BEL "U2/U2/ADDR1_INST_1" BEL "U2/U2/cnt_4_1" BEL
+        "U2/U2/cnt_4_0" BEL "U2/U2/cnt_32_4" BEL "U2/U2/cnt_32_3" BEL
+        "U2/U2/cnt_32_2" BEL "U2/U2/cnt_32_1" BEL "U2/U2/cnt_32_0" BEL
+        "U2/U2/sck" BEL "U2/U2/div_4" BEL "U2/U2/se_end" BEL "U2/U3/se_cnt_2"
+        BEL "U2/U3/se_cnt_1" BEL "U2/U3/se_cnt_0" BEL "U2/U3/cnt_3s_27" BEL
+        "U2/U3/cnt_3s_26" BEL "U2/U3/cnt_3s_25" BEL "U2/U3/cnt_3s_24" BEL
+        "U2/U3/cnt_3s_23" BEL "U2/U3/cnt_3s_22" BEL "U2/U3/cnt_3s_21" BEL
+        "U2/U3/cnt_3s_20" BEL "U2/U3/cnt_3s_19" BEL "U2/U3/cnt_3s_18" BEL
+        "U2/U3/cnt_3s_17" BEL "U2/U3/cnt_3s_16" BEL "U2/U3/cnt_3s_15" BEL
+        "U2/U3/cnt_3s_14" BEL "U2/U3/cnt_3s_13" BEL "U2/U3/cnt_3s_12" BEL
+        "U2/U3/cnt_3s_11" BEL "U2/U3/cnt_3s_10" BEL "U2/U3/cnt_3s_9" BEL
+        "U2/U3/cnt_3s_8" BEL "U2/U3/cnt_3s_7" BEL "U2/U3/cnt_3s_6" BEL
+        "U2/U3/cnt_3s_5" BEL "U2/U3/cnt_3s_4" BEL "U2/U3/cnt_3s_3" BEL
+        "U2/U3/cnt_3s_2" BEL "U2/U3/cnt_3s_1" BEL "U2/U3/cnt_3s_0" BEL
+        "U2/U3/se_start" PIN "U3/U1/ICAP_SPARTAN6_inst_pins<1>" BEL
+        "U3/U1/conf_data_13" BEL "U3/U1/conf_data_12" BEL "U3/U1/conf_data_10"
+        BEL "U3/U1/conf_data_9" BEL "U3/U1/conf_data_8" BEL
+        "U3/U1/conf_data_7" BEL "U3/U1/conf_data_6" BEL "U3/U1/conf_data_5"
+        BEL "U3/U1/conf_data_4" BEL "U3/U1/conf_data_3" BEL
+        "U3/U1/conf_data_1" BEL "U3/U1/conf_data_0" BEL "U3/U1/data_cnt_3" BEL
+        "U3/U1/data_cnt_2" BEL "U3/U1/data_cnt_1" BEL "U3/U1/data_cnt_0" BEL
+        "U0/U3/tx_flag" BEL "U0/U2/rx_flag" BEL "U1/U1/cs_n" BEL "U1/U1/sck"
+        BEL "U1/U1/add_flag" BEL "U2/U2/sdi" BEL "U2/U2/cs_n" BEL "U2/U2/flag"
+        BEL "U2/U3/add_flag" BEL "U2/U3/se_flag" BEL "U3/U1/flag" BEL
+        "U3/U1/write" BEL "U2/U1/cnt1_19" BEL "U2/U1/cnt1_18" BEL
+        "U2/U1/cnt1_17" BEL "U2/U1/cnt1_16" BEL "U2/U1/cnt1_15" BEL
+        "U2/U1/cnt1_14" BEL "U2/U1/cnt1_13" BEL "U2/U1/cnt1_12" BEL
+        "U2/U1/cnt1_11" BEL "U2/U1/cnt1_10" BEL "U2/U1/cnt1_9" BEL
+        "U2/U1/cnt1_8" BEL "U2/U1/cnt1_7" BEL "U2/U1/cnt1_6" BEL
+        "U2/U1/cnt1_5" BEL "U2/U1/cnt1_4" BEL "U2/U1/cnt1_3" BEL
+        "U2/U1/cnt1_2" BEL "U2/U1/cnt1_1" BEL "U2/U1/cnt1_0" BEL
+        "U3/U0/cnt1_0" BEL "U3/U0/cnt1_1" BEL "U3/U0/cnt1_2" BEL
+        "U3/U0/cnt1_3" BEL "U3/U0/cnt1_4" BEL "U3/U0/cnt1_5" BEL
+        "U3/U0/cnt1_6" BEL "U3/U0/cnt1_7" BEL "U3/U0/cnt1_8" BEL
+        "U3/U0/cnt1_9" BEL "U3/U0/cnt1_10" BEL "U3/U0/cnt1_11" BEL
+        "U3/U0/cnt1_12" BEL "U3/U0/cnt1_13" BEL "U3/U0/cnt1_14" BEL
+        "U3/U0/cnt1_15" BEL "U3/U0/cnt1_16" BEL "U3/U0/cnt1_17" BEL
+        "U3/U0/cnt1_18" BEL "U3/U0/cnt1_19" BEL "U1/U1/state_FSM_FFd2_1" BEL
+        "U1/U1/state_FSM_FFd2_2" BEL "U1/U1/state_FSM_FFd1_1" BEL
+        "U1/U1/state_cnt_2_1" BEL "U1/U1/state_cnt_0_1" BEL
+        "U1/U1/state_cnt_1_1" BEL "U1/U1/state_FSM_FFd2_3" BEL
+        "U1/U1/state_cnt_2_2" BEL "U1/U1/state_cnt_1_2" BEL
+        "U1/U1/state_cnt_0_2" BEL "U1/U1/state_FSM_FFd2_4" BEL
+        "sclk_BUFGP/BUFG";
+TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 50 MHz HIGH 50%;
+SCHEMATIC END;
+

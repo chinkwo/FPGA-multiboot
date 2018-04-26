@@ -1,0 +1,4 @@
+verilog work "../../design/se_start.v"
+verilog work "../../design/se_ctrl.v"
+verilog work "../../design/key_debounce.v"
+verilog work "../../design/spi_ce.v"
