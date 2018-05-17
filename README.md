@@ -1,7 +1,7 @@
 # FPGA-multiboot
 通过SPI协议实现FPGA multiboot功能(FPGA multiboot function through SPI protocol)   
 ----------  
-## 开发环境  
+## 开发环境(Development environment)  
 ISE、modelsim、Spartan6-xc6slx9  
 ## 项目概况(Project Overview)  
 本项目把程序的固化芯片（flash）分为多个存储区间，第一个区间内的程序功能包含可以修改flash内其他区域的程序，以及可以跳转至其他存储区域。现在其他区域存储一个LED灯的简单程序，通过串口发送擦除该区域的命令，则该区域内点亮一个LED等的功能则会被清楚，我们可以再次通过串口发送另外一个功能的程序到该区域，之后启动程序跳转功能模块，FPGA会执行第二次的程序，这样就可以完成在不通过程序下载的方式升级FPGA的控制程序。   
