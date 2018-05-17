@@ -1,5 +1,5 @@
 # FPGA-multiboot
-通过SPI协议实现FPGA multiboot功能(FPGA multiboot function through SPI protocol)   
+通过SPI协议实现FPGA multiboot功能   
 ----------  
 ## 开发环境(Development environment)  
 ISE、modelsim、Spartan6-xc6slx9  
